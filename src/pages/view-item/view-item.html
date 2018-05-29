@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      {{name}} - This task is {{status}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content>
+  <ion-card>
+    <ion-card-content [ngClass]="this.status">
+      {{description}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

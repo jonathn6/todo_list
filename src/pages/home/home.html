@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      To do List
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addItem()"><ion-icon name="add-circle"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item-sliding #slidingItem *ngFor="let item of items">
+      <ion-item [ngClass]="item.status">
+          {{item.name}} - Added {{item.date}}
+      </ion-item>  
+      <ion-item-options side="right">
+        <button ion-button color="dark" (click)="viewItem(item, slidingItem)">View</button>
+        <button ion-button color="light" (click)="editItem(item, slidingItem)">Edit</button>
+        <button ion-button color="pending" (click)="setStatus(item,'pending', slidingItem)">Pending</button>
+        <button ion-button color="complete" (click)="setStatus(item,'complete', slidingItem)">Complete</button>
+        <button ion-button color="danger" (click)="setStatus(item,'overdue', slidingItem)">Overdue</button>
+        <button ion-button color="secondary" (click)="removeItem(item, slidingItem)"><ion-icon name="trash"></ion-icon></button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
+<ion-footer>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+            <button ion-button full color="pending" (click)="showPending()">Pending</button>
+        </ion-col>
+        <ion-col col-4>
+            <button ion-button full color="complete" (click)="showComplete()">Complete</button>
+        </ion-col>
+        <ion-col col-4>
+            <button ion-button full color="danger" (click)="showOverdue()">Overdue</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+   </ion-footer>

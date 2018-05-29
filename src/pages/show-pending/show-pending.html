@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-navbar color="pending">
+      <ion-title>
+        All Pending Items
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content>
+  <ion-list>
+      <ion-item-sliding #slidingItem *ngFor="let element of passedArray">
+        <ion-item [ngClass]="element.status">
+            {{element.name}} - Added {{element.date}}
+        </ion-item>  
+        <ion-item-options side="right">
+          <button ion-button color="light" (click)="viewItem(element, slidingItem)">View</button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-content>

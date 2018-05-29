@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Update a list item
+    </ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+ 
+    <ion-item>
+      <ion-label floating>Item Name</ion-label>
+      <ion-input type="text" [(ngModel)]="name">{{name}}</ion-input>
+    </ion-item>
+ 
+    <ion-item>
+      <ion-label floating>Description</ion-label>
+      <ion-input type="text" [(ngModel)]="description">{{description}}</ion-input>
+    </ion-item>
+  
+  </ion-list>
+ 
+  <button full ion-button color="primary" (click)="updateItem()">Update</button>
+ 
+</ion-content>
